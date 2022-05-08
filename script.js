@@ -1,6 +1,7 @@
 // Miramos si existe el localStorage state para recogerlo, si no cremos un estado de la aplicación nuevo
 let state = {
     enlaces: [],
+    orderType: false,
 }
 
 if(localStorage.state){
@@ -44,12 +45,28 @@ document.querySelector("#buscador").addEventListener('keyup', (e) => {
     draw(result);    
 });
 
+// Orden Ascendente o descendente
+document.querySelector("#orderType").addEventListener('click', (e) => {
+    state.orderType = !state.orderType;
+    draw(state.enlaces);
+});
+
 /* Funciones operativas */
 // Funcion para ordenar los elementos por fecha
 function order() {
-    state.enlaces.sort((a, b) => {
-        return b.date - a.date;
-    });
+    if(state.orderType){
+        // El orden es ascendente
+        document.querySelector("#orderType").innerHTML = `<i class="fa-solid fa-sort-amount-up"></i>`;
+        state.enlaces.sort((a, b) => {
+            return b.date - a.date;
+        });
+    }else{
+        console.log("Es false")
+        document.querySelector("#orderType").innerHTML = `<i class="fa-solid fa-sort-amount-down"></i>`;
+        state.enlaces.sort((a, b) => {
+            return a.date - b.date;
+        });
+    }
 }
 
 function dateFormater(date){

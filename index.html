@@ -51,9 +51,12 @@
         
         <article class="resultados mt-5">
             <div class="search">
-                <div class="form-group">
-                    <label for="buscador"><b>🔎 Busca el enlace por el nombre</b></label>
+                <label for="buscador"><b>🔎 Busca el enlace por el nombre</b></label>
+                <div class="input-group mb-3">                    
                     <input type="text" name="buscador" id="buscador" class="form-control" placeholder="Escribe y se filtraran los resultados automaticamente.">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" id="orderType" type="button" data-toggle="tooltip" data-placement="top" title="Cambiar el orden a descendente o ascendente por fecha"><i class="fa-solid fa-sort-amount-up"></i></button>
+                      </div>
                 </div>
             </div>
             <hr>
