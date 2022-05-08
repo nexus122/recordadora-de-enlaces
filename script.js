@@ -23,6 +23,10 @@ document.querySelector("#nuevoEnlace").addEventListener('submit', (e) => {
     state.enlaces.push({ enlace: enlace, date: ahora, id: ahora, nombre:nombre });    
     saveLocalStorage();
     draw(state.enlaces);
+    
+    // Eliminamos el texto que se ha escrito en el campo.
+    document.querySelector("#enlace").value = "";
+    document.querySelector("#nombre").value = "";
 })
 
 document.querySelector("#buscador").addEventListener('keyup', (e) => {
