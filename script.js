@@ -5,10 +5,11 @@ let state = {
 
 if(localStorage.state){
     state = JSON.parse(localStorage.state);
-    draw();
+    draw(state.enlaces);
 }
 
-// Eventos
+/* EVENTOS */
+// Gestion del evento submit
 document.querySelector("#nuevoEnlace").addEventListener('submit', (e) => {
     e.preventDefault();    
     let enlace = document.querySelector("#enlace").value;
@@ -21,26 +22,55 @@ document.querySelector("#nuevoEnlace").addEventListener('submit', (e) => {
 
     state.enlaces.push({ enlace: enlace, date: ahora, id: ahora, nombre:nombre });    
     saveLocalStorage();
-    draw();
+    draw(state.enlaces);
 })
 
+document.querySelector("#buscador").addEventListener('keyup', (e) => {
+    let search = e.target.value;
+    if(search.trim() == ""){        
+        draw(state.enlaces);
+        return;
+    }
+
+    let result = state.enlaces.filter(enlace => {        
+        return enlace.nombre.toLowerCase().includes(search.toLowerCase());
+    });
+
+    console.log("Resultado: ", result);
+    draw(result);    
+});
+
+/* Funciones operativas */
+// Funcion para ordenar los elementos por fecha
 function order() {
     state.enlaces.sort((a, b) => {
         return a.date - b.date;
     });
 }
 
-function draw() {
+function dateFormater(date){
+    let dateObject = new Date(date);
+    let day = dateObject.getDate();
+    let month = dateObject.getMonth() + 1;
+    let year = dateObject.getFullYear();
+    let hour = dateObject.getHours();
+    let minutes = dateObject.getMinutes();
+    let formatedDate = `<i class="fa-solid fa-calendar"></i> ${day}/${month}/${year} - <i class="fa-solid fa-clock"></i> ${hour}:${minutes}`;
+    return formatedDate;
+}
+
+// Funcion para pintar los enlaces en el DOM
+function draw(param) {
     order();
     let html = "";
-    state.enlaces.forEach(enlace => {
+    param.forEach(enlace => {
         html += `
         <tr>
             <td>
                 <a href="${enlace.enlace}" target="_blank">${enlace.nombre? enlace.nombre: enlace.enlace}</a>
             </td>
             <td>
-                ${enlace.date}
+                ${dateFormater(enlace.date)}
             </td>
             <td>
                 <button class="btn btn-danger delete" onclick="deleteEnlace(${enlace.id})"><i class="fa-solid fa-trash-can"></i> Delete</button>
@@ -50,15 +80,17 @@ function draw() {
     document.querySelector("#lista").innerHTML = html;
 }
 
+// Funcion para borrar enlaces
 function deleteEnlace(param) {
     console.log("Entramos en borrar: ", param);    
     state.enlaces = state.enlaces.filter(enlace => {
         return enlace.id != param;
     });
-    draw();
+    draw(state.enlaces);
     saveLocalStorage();
 }
 
+// Guardar el estado de la app en el localStorage
 function saveLocalStorage(){
     localStorage.setItem("state", JSON.stringify(state));
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Required meta tags -->
@@ -11,32 +11,47 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Fontawersome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Recordadora de enlaces</title>
 </head>
 
 <body>
     <main class="container">
+
         <h1>🤞Recordadora de enlaces</h1>
-        <p>Para todas esas veces que quieres guardar un enlace rapido, pero no encuentras las forma de hacerlo he creado esta recordadora, ordenara tus enlaces segun la fecha en las que los escribas y los guardara en tu localstorage para que los tengas siempre a mano en tu dispositivo.</p>
+
+        <p>Para todas esas veces que quieres guardar un enlace rapido, pero no encuentras las forma de hacerlo he creado
+            esta recordadora, ordenara tus enlaces segun la fecha en las que los escribas y los guardara en tu
+            localstorage para que los tengas siempre a mano en tu dispositivo.</p>
         <p>Es un Crud muy sencillito que aun esta en construccion, ten paciencia !</p>
         <hr>
         <form id="nuevoEnlace">
             <h2>¿Que es lo que quieres recordar?</h2>
             <div class="form-group">
-                <label for="enlace">Enlace</label>
+                <label for="enlace">Escribe el enlace que quieras recordar</label>
                 <input required type="text" class="form-control" name="enlace" id="enlace" aria-describedby="enlace"
                     placeholder="Escribe tu enlace">
             </div>
             <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Si quieres escribe un nombre para recordar porque guardas el enlace.">
-            </div>
-            <button class="btn btn-info" id="enviar">Enviar</button>
+                <label for="nombre">Si quieres, escribe un nombre para recordar que es tu enlace</label>
+                <input type="text" name="nombre" id="nombre" class="form-control"
+                    placeholder="Nombre para recordar el enlace">
+            </div>            
+            <button class="btn btn-primary mt-2" id="enviar">Escribir en la recordadora</button>
         </form>
+
         <hr>
-        <article class="resultados">            
-            <table class="table" id="lista"></table>            
+        <article class="resultados">
+            <div class="search">                
+                <div class="form-group">
+                    <label for="buscador">🔎 Busca el enlace por el nombre</label>
+                    <input type="text" name="buscador" id="buscador" class="form-control"
+                        placeholder="Bootstrap">
+                </div>    
+            </div>
+            <table class="table" id="lista"></table>
         </article>
     </main>
 

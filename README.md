@@ -6,12 +6,14 @@ Para todas esas veces que quieres guardar un enlace rapido, pero no encuentras l
 - [x] Que se dibujen los enlaces en pantalla
 - [x] Poder borrar enlaces
 - [x] Que se guarden en el localstorage
-
-## Por hacer
 - [x] Que puedas escribir un nombre personalizado al enlace.
-- [ ] Escribir la fecha por pantalla con formato en lugar de milisegundos
-- [ ] Que puedas filtrar enlaces por rango de fechas de forma dinamica.
+- [x] Escribir la fecha por pantalla con formato en lugar de milisegundos
+
+## Haciendo
+- [ ] Que puedas buscar un enlace por su nombre.
 
 ## Ideas
 - [ ] Añadir tags dinamicos a los enlaces para filtrarlos por tipo.
 - [ ] Separar los enlaces por dias para que sean faciles de encontrar.
+- [ ] Btn para pegar el enlace que tienes copiado
+- [ ] Que puedas filtrar enlaces por rango de fechas de forma dinamica.
