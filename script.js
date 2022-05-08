@@ -48,7 +48,7 @@ document.querySelector("#buscador").addEventListener('keyup', (e) => {
 // Funcion para ordenar los elementos por fecha
 function order() {
     state.enlaces.sort((a, b) => {
-        return a.date - b.date;
+        return b.date - a.date;
     });
 }
 
