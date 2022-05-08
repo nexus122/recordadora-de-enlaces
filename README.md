@@ -8,9 +8,7 @@ Para todas esas veces que quieres guardar un enlace rapido, pero no encuentras l
 - [x] Que se guarden en el localstorage
 - [x] Que puedas escribir un nombre personalizado al enlace.
 - [x] Escribir la fecha por pantalla con formato en lugar de milisegundos
-
-## Haciendo
-- [ ] Que puedas buscar un enlace por su nombre.
+- [x] Que puedas buscar un enlace por su nombre.
 
 ## Ideas
 - [ ] Añadir tags dinamicos a los enlaces para filtrarlos por tipo.
