@@ -9,7 +9,7 @@ if(localStorage.state){
 }
 
 // Eventos
-document.querySelector("#enviar").addEventListener('click', (e) => {
+document.querySelector("#nuevoEnlace").addEventListener('submit', (e) => {
     e.preventDefault();    
     let enlace = document.querySelector("#enlace").value;
     let nombre = document.querySelector("#nombre").value;
@@ -37,7 +37,7 @@ function draw() {
         html += `
         <tr>
             <td>
-                <a href="${enlace.enlace}" target="_blank">${enlace.enlace}</a>
+                <a href="${enlace.enlace}" target="_blank">${enlace.nombre? enlace.nombre: enlace.enlace}</a>
             </td>
             <td>
                 ${enlace.date}
