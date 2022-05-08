@@ -71,13 +71,13 @@ function draw(param) {
         html += `
         <tr>
             <td>
-                <a href="${enlace.enlace}" target="_blank">${enlace.nombre? enlace.nombre: enlace.enlace}</a>
+                <a href="${enlace.enlace}" target="_blank"><b>${enlace.nombre? enlace.nombre: enlace.enlace}</b></a>
             </td>
             <td>
                 ${dateFormater(enlace.date)}
             </td>
             <td>
-                <button class="btn btn-danger delete" onclick="deleteEnlace(${enlace.id})"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                <button class="btn btn-danger delete" onclick="deleteEnlace(${enlace.id})"><i class="fa-solid fa-trash-can"></i></button>
             </td>
         <tr>`;
     });
